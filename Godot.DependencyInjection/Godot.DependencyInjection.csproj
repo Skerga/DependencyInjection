@@ -11,8 +11,11 @@
 
         <RootNamespace>Godot.DependencyInjection</RootNamespace>
         <PackageId>Skerga.Godot.DependencyInjection</PackageId>
-        <PackageTags>Godot; Dependency Injection</PackageTags>
+        <PackageTags>Godot; DependencyInjection</PackageTags>
         <Authors>Sebastian Sommer</Authors>
+        <RepositoryUrl>https://github.com/Skerga/Godot.DependencyInjection</RepositoryUrl>
+        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
@@ -27,5 +30,9 @@
     <ItemGroup>
         <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true"
               PackagePath="analyzers/dotnet/cs" Visible="false" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\Readme.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 </Project>
