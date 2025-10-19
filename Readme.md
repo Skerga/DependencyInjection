@@ -60,3 +60,6 @@ namespace Godot.DependencyInjection
 
 If a service with the basetype of Node is registered, either by using `services.AddSingleton<MyNode>():` or `services.AddHostedService<MyNode>();`
 then this Node will be added to the `SceneTree` as a child of the `DependencyInjection` Node.
+
+## Licence
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/Skerga/Godot.DependencyInjection/blob/main/LICENSE) file for more information.
