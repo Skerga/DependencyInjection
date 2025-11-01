@@ -122,18 +122,14 @@ public class MainClassGenerator : IIncrementalGenerator
                                              {
                                                  System.Runtime.Loader.AssemblyLoadContext.GetLoadContext(System.Reflection.Assembly.GetExecutingAssembly()).Unloading += async (alc) =>
                                                  {
-                                                     var CancellationTokenSource = new global::System.Threading.CancellationTokenSource();
-                                                     CancellationTokenSource.CancelAfter(2000);
-                                                     await Host.StopAsync(CancellationTokenSource.Token);
-                                                     Host.Dispose();
-                                                     Host = null;
-                                       
-                                                     var assembly = typeof(JsonSerializerOptions).Assembly;
-                                                     var updateHandlerType = assembly.GetType("System.Text.Json.JsonSerializerOptionsUpdateHandler");
-                                                     var clearCacheMethod = updateHandlerType?.GetMethod("ClearCache", BindingFlags.Static | BindingFlags.Public);
-                                       #nullable enable
-                                                     clearCacheMethod?.Invoke(null, new object?[] { null });
-                                       #nullable disable
+                                                    if(Host != null)
+                                                    {
+                                                        var CancellationTokenSource = new global::System.Threading.CancellationTokenSource();
+                                                        CancellationTokenSource.CancelAfter(2000);
+                                                        await Host.StopAsync(CancellationTokenSource.Token);
+                                                        Host.Dispose();
+                                                        Host = null;
+                                                    }
                                                  };
                                              }
                                          }
